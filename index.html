@@ -21,11 +21,8 @@
             <select v-model="selectGenre" name="" id="">
                 <option disabled value="">Please select one</option>
                 <option value="all">ALL</option>
-                <option value="Pop">Pop</option>
-                <option value="Rock">Rock</option>
-                <option value="Metal">Metal</option>
-                <option value="Jazz">Jazz</option>
-            </select> <span>{{selectGenre}}</span>
+                <option v-for="genre in arrayGenre" :value="genre">{{genre}}</option>                
+            </select>
         </div>
         <div class="cds-container container">
             <!-- Disco ad esempio -->

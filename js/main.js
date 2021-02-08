@@ -3,10 +3,15 @@ var app = new Vue({
     data: {
         albums: [],
         selectGenre: '',
+        arrayGenre: [],
     },
     methods: {
-        filterForYear: function() {
-
+        filterForGenre: function() {
+            this.albums.forEach(element => {
+                if (!this.arrayGenre.includes(element.genre)) {
+                    this.arrayGenre.push(element.genre)
+                }
+            });
         }
 
     },
@@ -18,6 +23,7 @@ var app = new Vue({
                 console.log('album ', resp.data.response);
                 const album = resp.data.response;
                 self.albums = album;
+                self.filterForGenre();
             });
 
 
